@@ -38,3 +38,4 @@ spring/*.pid
 # Ignore cache files.
 *.swp
 *.swo
+app/assets/builds/*
