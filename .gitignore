@@ -39,3 +39,4 @@ spring/*.pid
 *.swp
 *.swo
 app/assets/builds/*
+app/assets/builds/tailwind.css
