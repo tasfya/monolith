@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :news do
+    title { Faker::Lorem.sentence }
+    slug { title.parameterize }
+    published_at { 1.day.ago }
+  end
+
   factory :episode do
     association :podcast
 

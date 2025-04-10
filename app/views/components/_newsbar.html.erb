@@ -1,0 +1,18 @@
+<% unless news_items.empty? %>
+  <div class="w-full flex justify-end px-4 overflow-hidden bg-gray-100 py-2.5"
+       data-controller="news-ticker"
+       data-action="mouseenter->news-ticker#stopTicker mouseleave->news-ticker#startTicker"
+       data-news-ticker-interval-value="4000"
+       data-news-ticker-transition-value="600">
+    <div class="container mx-auto flex justify-end gap-4 overflow-x-auto whitespace-nowrap relative min-h-[1.5rem]">
+      <% news_items.each_with_index do |news, index| %>
+        <span class="news-item <%= 'hidden opacity-0' unless index.zero? %> hover:underline transition-opacity duration-[600ms] ease-in-out absolute right-0"
+              data-news-ticker-target="item">
+          <a href="<%= news.url %>" class="text-gray-800 hover:text-gray-600">
+            <%= news.title %>
+          </a>
+        </span>
+      <% end %>
+    </div>
+  </div>
+<% end %>

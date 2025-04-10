@@ -62,3 +62,16 @@
   bottom: 100%;
   top: auto;
 }
+
+.news-ticker {
+  animation: ticker 20s linear infinite;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.hover\:pause:hover .news-ticker {
+  animation-play-state: paused;
+}
