@@ -38,3 +38,5 @@ spring/*.pid
 # Ignore cache files.
 *.swp
 *.swo
+app/assets/builds/*
+app/assets/builds/tailwind.css

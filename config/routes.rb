@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: "podcasts#index"
+  root to: "home#index"
 
   resolve "SearchResult" do |search_result|
     [search_result.podcast, search_result.episode]
