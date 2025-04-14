@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :category do
+    title { Faker::Lorem.sentence(word_count: 3, supplemental: true, locale: :ar) }
+  end
+
   factory :news do
     title { Faker::Lorem.sentence }
     slug { title.parameterize }
