@@ -1,54 +1,37 @@
-<footer class="bg-gray-800 text-white py-4 mt-auto">
-  <div class="container mx-auto flex justify-between items-center gap-4 rtl:space-x-reverse">
-    <div class="flex flex-col items-end gap-4">
-      <h4 class="text-3xl text-gray-200">اشترك بالقائمة البريدية</h4>
-      <p>اشترك بالقائمة البريدية للشيخ ليصلك جديد الشيخ من المحاضرات والدروس والمواعيد</p>
-      <div class="flex items-center gap-4">
-        <input type="email" placeholder="البريد الإلكتروني" class="text-gray-600 px-4 py-2 border border-gray-600 rounded w-full" />
-        <button class="bg-amber-500  px-6 py-2 rounded hover:rotate-3 transition-transform duration-300">اشترك</button>
+<footer class="bg-gray-800 text-white py-6 mt-auto">
+  <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6 px-4">
+    <div class="w-full md:w-1/3 flex flex-col items-center md:items-end gap-4">
+      <h4 class="text-2xl md:text-3xl text-gray-200 text-center md:text-right">اشترك بالقائمة البريدية</h4>
+      <p class="text-sm md:text-base text-center md:text-right">اشترك بالقائمة البريدية للشيخ ليصلك جديد الشيخ من المحاضرات والدروس والمواعيد</p>
+      <div class="flex flex-col sm:flex-row items-center gap-3 w-full">
+        <input 
+          type="email" 
+          placeholder="البريد الإلكتروني" 
+          class="text-gray-600 px-4 py-2 border border-gray-600 rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500"/>
+        <button class="bg-amber-500 text-white px-6 py-2 rounded hover:bg-amber-600 transition-colors duration-300 w-full sm:w-auto">
+          اشترك
+        </button>
       </div>
     </div>
-    <div class="flex flex-col items-end gap-4">
-      <span class="text-2xl mr-2 text-gray-200">اتبع الشيخ</span>
-      <div class="flex space-x-3">
-        <a href="#" class="text-amber-600 hover:text-amber-800">
-          <svg xmlns="http://www.w3.org/2000/svg" class="size-8" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M9.52 12.664C10.333 13.099 11.262 13.324 12.22 13.312C14.568 13.312 16.473 11.436 16.473 9.156C16.473 6.876 14.568 5 12.22 5C9.872 5 7.967 6.876 7.967 9.156C7.967 9.964 8.202 10.717 8.602 11.359L8.48 12.394L7.48 12.664L9.52 12.664Z"/>
-            <path d="M12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2C6.477 2 2 6.477 2 12C2 13.821 2.487 15.53 3.338 17L2.5 21.5L7 20.662C8.47 21.513 10.179 22 12 22Z"/>
-          </svg>
-        </a>
-        <a href="#" class="text-amber-600 hover:text-amber-800">
-          <svg xmlns="http://www.w3.org/2000/svg" class="size-8" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z" />
-          </svg>
-        </a>
-        <a href="#" class="text-amber-600 hover:text-amber-800">
-          <svg xmlns="http://www.w3.org/2000/svg" class="size-8" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-          </svg>
-        </a>
-        <a href="#" class="text-amber-600 hover:text-amber-800">
-          <svg xmlns="http://www.w3.org/2000/svg" class="size-8" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.736-.9 10.125-5.864 10.125-11.854z"/>
-          </svg>
-        </a>
-      </div>
-      <div class="flex flex-col">
-        <%= link_to "الأحكام والشروط", "#", class: "text-gray-400 hover:text-white text-right" %>
-        <%= link_to "سياسة الخصوصية", "#", class: "text-gray-400 hover:text-white text-right" %>
-        <%= link_to "تواصل معنا", "#", class: "text-gray-400 hover:text-white text-right" %>
+    <div class="w-full md:w-1/3 flex flex-col items-center md:items-end gap-4">
+      <span class="text-xl md:text-2xl text-gray-200">اتبع الشيخ</span>
+      <%= nav_render_social_links %>
+      <div class="flex flex-col items-center md:items-end gap-2">
+        <%= link_to "الأحكام والشروط", "#", class: "text-gray-400 hover:text-white text-sm md:text-base" %>
+        <%= link_to "سياسة الخصوصية", "#", class: "text-gray-400 hover:text-white text-sm md:text-base" %>
+        <%= link_to "تواصل معنا", "#", class: "text-gray-400 hover:text-white text-sm md:text-base" %>
       </div>
     </div>
-    <div class="flex flex-col items-end">
+    <div class="w-full md:w-1/3 flex flex-col items-center md:items-end gap-2">
       <%= link_to root_path do %>
         <div class="flex items-center">
-          <%= image_tag "logo.png", alt: "Logo", class: "h-16" %>
+          <%= image_tag "logo.png", alt: "Logo", class: "h-12 md:h-16" %>
         </div>
       <% end %>
-    <span class="text-sm mr-2 text-gray-400">
-      <%= "#{Time.current.year} م / #{(Time.current.year - 579).to_s} هـ" %>
-    </span>
-      <span class="text-sm mr-2 text-gray-400">جميع الحقوق محفوظة</span>
+      <span class="text-xs md:text-sm text-gray-400 text-center md:text-right">
+        <%= "#{Time.current.year} م / #{(Time.current.year - 579).to_s} هـ" %>
+      </span>
+      <span class="text-xs md:text-sm text-gray-400 text-center md:text-right">جميع الحقوق محفوظة</span>
     </div>
   </div>
 </footer>

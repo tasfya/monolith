@@ -1,28 +1,6 @@
 <div data-controller="navbar" class="bg-amber-50 shadow-sm">
   <div class="container mx-auto px-4 py-2 flex flex-wrap items-center gap-8">
-    <div class="flex space-x-3">
-      <a href="#" class="text-amber-600 hover:text-amber-800">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M9.52 12.664C10.333 13.099 11.262 13.324 12.22 13.312C14.568 13.312 16.473 11.436 16.473 9.156C16.473 6.876 14.568 5 12.22 5C9.872 5 7.967 6.876 7.967 9.156C7.967 9.964 8.202 10.717 8.602 11.359L8.48 12.394L7.48 12.664L9.52 12.664Z"/>
-          <path d="M12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2C6.477 2 2 6.477 2 12C2 13.821 2.487 15.53 3.338 17L2.5 21.5L7 20.662C8.47 21.513 10.179 22 12 22Z"/>
-        </svg>
-      </a>
-      <a href="#" class="text-amber-600 hover:text-amber-800">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z" />
-        </svg>
-      </a>
-      <a href="#" class="text-amber-600 hover:text-amber-800">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-        </svg>
-      </a>
-      <a href="#" class="text-amber-600 hover:text-amber-800">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.736-.9 10.125-5.864 10.125-11.854z"/>
-        </svg>
-      </a>
-    </div>
+    <%= nav_render_social_links %>
     <div class="flex items-center space-x-4">
       <div class="relative" data-controller="dropdown">
         <button data-dropdown-target="toggle" data-action="dropdown#toggle" class="bg-amber-100 hover:bg-amber-200 px-4 py-1 rounded-md border border-amber-300 text-amber-800 flex items-center">
@@ -37,15 +15,14 @@
             <% if current_user&.present? %>
               <%= link_to "الملف الشخصي", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
               <%= link_to "الإعدادات", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
-                <%= button_to "تسجيل الخروج", destroy_user_session_path, method: :delete, class: "w-full block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100", data: { confirm: "هل أنت متأكد أنك تريد تسجيل الخروج؟" } %>
+              <%= button_to "تسجيل الخروج", destroy_user_session_path, method: :delete, class: "w-full block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100", data: { confirm: "هل أنت متأكد أنك تريد تسجيل الخروج؟" } %>
             <% else %>
-              <%= link_to "تسجيل الدخول", new_user_session_path , class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
+              <%= link_to "تسجيل الدخول", new_user_session_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
               <%= link_to "إنشاء حساب", new_user_registration_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
             <% end %>
           </div>
         </div>
       </div>
-      <!-- Search Bar remains unchanged -->
       <div class="relative w-full">
         <%= form_with url: "/search", method: :get, data: { turbo: false }, class: "flex items-center" do |f| %>
           <%= f.text_field :q, placeholder: "كلمة البحث", class: "w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent rtl" %>
@@ -65,48 +42,11 @@
       <% end %>
     </div>
   </div>
-  <!-- Main Navigation -->
   <div class="bg-white border-t border-amber-100 hidden lg:block">
     <div class="container mx-auto">
-      <nav class="flex justify-center space-x-8 rtl">
-        <div class="relative" data-controller="dropdown">
-          <button data-dropdown-target="toggle" data-action="dropdown#toggle" class="py-3 px-2 text-amber-900 hover:text-amber-600 border-b-2 border-transparent hover:border-amber-500 transition-all flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-            تصنيفات
-          </button>
-          <div data-dropdown-target="content" class="hidden absolute right-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 rtl transition-all duration-150 opacity-0 scale-95">
-            <div class="py-1">
-              <%= link_to "التصنيف الأول", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
-              <%= link_to "التصنيف الثاني", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
-              <%= link_to "التصنيف الثالث", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
-              <%= link_to "التصنيف الرابع", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
-            </div>
-          </div>
-        </div>
-        <div class="relative" data-controller="dropdown">
-          <button data-dropdown-target="toggle" data-action="dropdown#toggle" class="py-3 px-2 text-amber-900 hover:text-amber-600 border-b-2 border-transparent hover:border-amber-500 transition-all flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-            مع الشيخ
-          </button>
-          <div data-dropdown-target="content" class="hidden absolute right-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 rtl transition-all duration-150 opacity-0 scale-95">
-            <div class="py-1">
-              <%= link_to "السيرة الذاتية", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
-              <%= link_to "المقابلات", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
-              <%= link_to "الأنشطة", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-amber-100" %>
-            </div>
-          </div>
-        </div>
-        <% ["فوائد", "كتب", "محاضرات", "خطب", "فتاوى", "الرئيسية"].each do |item| %>
-          <%= link_to item, "#", class: "py-3 px-2 text-amber-900 hover:text-amber-600 border-b-2 border-transparent hover:border-amber-500 transition-all" %>
-        <% end %>
-      </nav>
+      <%= render_nav_links %>
     </div>
   </div>
-  <!-- Mobile menu button -->
   <div class="lg:hidden container mx-auto px-4 py-2">
     <button data-action="navbar#toggleMobileMenu" class="text-amber-900 hover:text-amber-600 focus:outline-none">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -114,39 +54,7 @@
       </svg>
     </button>
   </div>
-  <!-- Mobile menu -->
   <div data-navbar-target="mobileMenu" class="hidden lg:hidden">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 rtl">
-      <% ["الرئيسية", "فتاوى", "خطب", "محاضرات", "كتب", "فوائد"].each do |item| %>
-        <%= link_to item, "#", class: "block py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md" %>
-      <% end %>
-      <div data-controller="dropdown" class="w-full">
-        <button data-dropdown-target="toggle" data-action="dropdown#toggle" class="w-full flex justify-between items-center py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md">
-          <span>مع الشيخ</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div data-dropdown-target="content" class="hidden mt-1 pl-4 border-r-2 border-amber-200 mr-2 transition-all duration-150 opacity-0 scale-95">
-          <%= link_to "السيرة الذاتية", "#", class: "block py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md" %>
-          <%= link_to "المقابلات", "#", class: "block py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md" %>
-          <%= link_to "الأنشطة", "#", class: "block py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md" %>
-        </div>
-      </div>
-      <div data-controller="dropdown" class="w-full">
-        <button data-dropdown-target="toggle" data-action="dropdown#toggle" class="w-full flex justify-between items-center py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md">
-          <span>تصنيفات</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div data-dropdown-target="content" class="hidden mt-1 pl-4 border-r-2 border-amber-200 mr-2 transition-all duration-150 opacity-0 scale-95">
-          <%= link_to "التصنيف الأول", "#", class: "block py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md" %>
-          <%= link_to "التصنيف الثاني", "#", class: "block py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md" %>
-          <%= link_to "التصنيف الثالث", "#", class: "block py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md" %>
-          <%= link_to "التصنيف الرابع", "#", class: "block py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md" %>
-        </div>
-      </div>
-    </div>
+    <%= render_mobile_nav_links %>
   </div>
 </div>
