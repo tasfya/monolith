@@ -1,0 +1,4 @@
+ar:
+  date:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"
