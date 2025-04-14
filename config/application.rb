@@ -21,5 +21,8 @@ module Botcasts
 
     config.active_job.queue_adapter = :good_job
     config.debounced = config_for(:debounced)
+
+    # defult locale
+    config.i18n.default_locale = :ar
   end
 end
