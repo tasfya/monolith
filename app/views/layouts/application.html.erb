@@ -6,17 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= javascript_tag type: "module", nonce: true do %>
       import debounced from "debounced"
-
       debounced.initialize(<%= raw Rails.configuration.debounced.to_json %>)
     <% end %>
   </head>
-
-  <body data-controller="hotkey"  dir="ltr" lang="ar">
-    <%= yield %>
+  <body data-controller="hotkey"  dir="ltr" lang="ar" class="flex flex-col min-h-screen">
+    <%= render partial: "components/navbar"%>
+    <%= render partial: 'components/newsbar', locals: { news_items: @news_items || [] } %>
+    <div class="container mx-auto flex flex-col items-center justify-center border mt-4">
+      <%= yield %>
+    </div>
+    <%= render partial: "components/footer" %>
   </body>
 </html>
