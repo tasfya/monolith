@@ -1,15 +1,16 @@
-<h2>Forgot your password?</h2>
+<h2 class="border-b bg-gray-800 text-white text-3xl w-full text-end p-4">نسيت كلمة المرور؟</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "mt-4 w-full container mx-auto max-w-lg flex flex-col flex-end gap-2", method: :post }) do |f| %>
+  <h3 class="text-2xl text-end p-4">استعادة كلمة المرور</h3>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="field text-end">
+    <%= f.label :email, "البريد الإلكتروني" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="actions text-end">
+    <%= f.submit "إرسال تعليمات استعادة كلمة المرور", class: "w-full btn-primary" %>
   </div>
 <% end %>
 

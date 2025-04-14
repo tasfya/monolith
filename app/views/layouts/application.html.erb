@@ -13,10 +13,11 @@
       debounced.initialize(<%= raw Rails.configuration.debounced.to_json %>)
     <% end %>
   </head>
-  <body data-controller="hotkey"  dir="ltr" lang="ar" class="flex flex-col min-h-screen">
-    <%= render partial: "components/navbar"%>
+  <body data-controller="hotkey" dir="ltr" lang="ar" class="flex flex-col min-h-screen">
+    <%= render partial: "components/navbar" %>
     <%= render partial: 'components/newsbar', locals: { news_items: @news_items || [] } %>
-    <div class="container mx-auto flex flex-col items-center justify-center border mt-4">
+    <%= render partial: 'components/toast' %>
+    <div class="container mx-auto flex flex-col items-center justify-center mt-4">
       <%= yield %>
     </div>
     <%= render partial: "components/footer" %>

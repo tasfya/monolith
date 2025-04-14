@@ -1,15 +1,16 @@
-<h2>Resend unlock instructions</h2>
+<h2 class="border-b bg-gray-800 text-white text-3xl w-full text-end p-4">تأكيد البريد الإلكتروني</h2>
 
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { class: "mt-4 w-full container mx-auto max-w-lg flex flex-col flex-end gap-2", method: :post }) do |f| %>
+  <h3 class="text-2xl text-end p-4">إعادة إرسال تعليمات التأكيد</h3>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="field text-end">
+    <%= f.label :email, "البريد الإلكتروني" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
+  <div class="actions text-end">
+    <%= f.submit "إرسال تعليمات التأكيد", class: "w-full btn-primary", data: {turbo: "_top"} %>
   </div>
 <% end %>
 
