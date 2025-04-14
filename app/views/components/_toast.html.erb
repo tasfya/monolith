@@ -1,0 +1,11 @@
+<div data-controller="toast" class="fixed top-4 right-4 z-50 hidden" data-toast-target="container">
+    <div class="<%= flash[:notice] ? 'bg-gray-800' : 'bg-red-500' %> text-white px-4 py-3 rounded-lg shadow-lg flex items-center space-x-3 max-w-sm" 
+             data-toast-target="notification">
+        <span data-toast-target="message">
+            <%= flash[:notice] || flash[:alert] %>
+        </span>
+        <button data-action="click->toast#dismiss" class="text-gray-200 hover:text-gray-100">
+            ✕
+        </button>
+    </div>
+</div>

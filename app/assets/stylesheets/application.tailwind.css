@@ -2,15 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+    @apply bg-amber-500 text-white px-6 py-2 rounded hover:bg-amber-600 cursor-pointer;
+  }
+  .btn-secondary {
+    @apply bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600 cursor-pointer;
+  }
+  .btn-danger {
+    @apply bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 cursor-pointer;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-gray-500 px-6 py-2 rounded hover:bg-gray-100 cursor-pointer;
+  }
+  .btn-link {
+    @apply bg-transparent text-gray-500 px-6 py-2 rounded cursor-pointer hover:underline;
+  }
+}
+@layer base{
+  input {
+    @apply border border-gray-300 rounded p-2 w-full;
   }
 }
 
-*/
+@layer utilities {
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+  .animate-slide-out {
+    animation: slideOut 0.3s ease-in forwards;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+
 @import 'actiontext.css';
 .dropdown-enter {
   opacity: 0;
