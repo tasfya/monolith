@@ -1,0 +1,41 @@
+<article aria-labelledby="<%= dom_id(episode, :title) %>" class="py-8 sm:py-10" dir="rtl">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex flex-col items-end space-y-4">
+        <h2 id="<%= dom_id(episode, :title) %>" class="text-xl font-semibold text-gray-900">
+          <%= link_to episode.title, podcast_episode_path(episode.podcast, episode), class: "hover:underline" %>
+        </h2>
+        <%= time_tag episode.published_at.to_date, class: "text-sm text-gray-500 font-mono" %>
+        <p class="text-base text-gray-700"><%= episode.subtitle %></p>
+        <div class="flex items-center space-x-4 rtl:space-x-reverse">
+          <%= tag.form(
+            action: podcast_episode_path(episode.podcast, episode),
+            data: {
+              action: "submit->application#preventDefault:reload",
+              turbo_frame: "audio"
+            }
+          ) do %>
+            <button class="flex items-center text-sm font-medium text-amber-600 hover:text-amber-800"
+                    data-controller="play-button"
+                    data-play-button-player-outlet="#<%= dom_id(episode, :audio) %>"
+                    data-action="click->play-button#toggle">
+              <% with_options class: "w-4 h-4 fill-current" do |styled| %>
+                <div class="block group-aria-pressed:hidden">
+                  <span class="sr-only">تشغيل الحلقة <%= episode.title %></span>
+                  <%= styled.inline_svg_tag "icons/play.svg" %>
+                </div>
+                <div class="hidden group-aria-pressed:block">
+                  <span class="sr-only">إيقاف الحلقة <%= episode.title %></span>
+                  <%= styled.inline_svg_tag "icons/pause.svg" %>
+                </div>
+              <% end %>
+              <span class="mr-2">استمع</span>
+            </button>
+          <% end %>
+          <span class="text-sm text-gray-400">/</span>
+          <%= link_to "ملاحظات الحلقة", podcast_episode_path(episode.podcast, episode), class: "text-sm font-medium text-amber-600 hover:text-amber-800", aria: {label: "ملاحظات الحلقة #{episode.title}"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

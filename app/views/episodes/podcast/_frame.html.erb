@@ -1,8 +1,5 @@
-<main class="border-t border-slate-200 lg:relative lg:mb-28 lg:ml-112 lg:border-t-0 xl:ml-120" aria-labelledby="main_title">
-  <div class="relative">
-    <%= yield %>
-  </div>
-
+<main class="border-t border-slate-200 w-full" aria-labelledby="main_title">
+  <%= yield %>
   <%= render "episodes/player" do %>
     <% if partial.player %>
       <%= partial.yield :player %>
