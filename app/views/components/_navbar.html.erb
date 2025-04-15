@@ -3,7 +3,7 @@
     <%= nav_render_social_links %>
     <div class="flex items-center space-x-4">
       <div class="relative" data-controller="dropdown">
-        <button data-dropdown-target="toggle" data-action="dropdown#toggle" class="bg-amber-100 hover:bg-amber-200 px-4 py-1 rounded-md border border-amber-300 text-amber-800 flex items-center">
+        <button data-dropdown-target="toggle" data-action="dropdown#toggle" class="btn-outline flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
@@ -24,13 +24,15 @@
         </div>
       </div>
       <div class="relative w-full">
-        <%= form_with url: "/search", method: :get, data: { turbo: false }, class: "flex items-center" do |f| %>
-          <%= f.text_field :q, placeholder: "كلمة البحث", class: "w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent rtl" %>
-          <button type="submit" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-amber-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
+        <%= link_to podcast_search_results_path(@podcast), class: "outline-none",
+              aria: {keyshortcuts: "Meta+k, Control+k"},
+              data: {hotkey_target: "shortcut"} do %>
+          <div class="flex items-center gap-4 text-start btn-outline">
+            <span class="font-mono text-md leading-6">بحث</span>
+            <kbd class="inline-flex items-center gap-1 font-mono text-sm leading-6">
+              <abbr title="Command" class="no-underline text-amber-600 scale-200">⌘</abbr> K
+            </kbd>
+          </div>
         <% end %>
       </div>
     </div>

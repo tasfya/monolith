@@ -21,6 +21,9 @@
   .btn-link {
     @apply bg-transparent text-gray-500 px-6 py-2 rounded cursor-pointer hover:underline;
   }
+  .btn-outline {
+    @apply bg-amber-100 hover:bg-amber-200 px-4 py-1 rounded-md border border-amber-300 text-amber-800 
+  }
 }
 @layer base{
   input {

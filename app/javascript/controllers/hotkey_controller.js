@@ -5,7 +5,10 @@ export default class extends ApplicationController {
   static targets = ["shortcut"]
 
   shortcutTargetConnected(target) {
-    install(target, target.getAttribute("aria-keyshortcuts"))
+    const shortcuts = target.getAttribute("aria-keyshortcuts").split(",")
+    shortcuts.forEach(shortcut => {
+      install(target, shortcut.trim())
+    })
   }
 
   shortcutTargetDisconnected(target) {
