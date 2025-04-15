@@ -52,7 +52,6 @@ module NavbarHelper
       end
     end
   
-    # Helper for individual nav link
     def nav_link(text, path, options = {})
       link_to text, path, options.merge(class: class_names(
         "py-3 px-2 text-amber-900 hover:text-amber-600 border-b-2 border-transparent hover:border-amber-500 transition-all",
@@ -60,7 +59,6 @@ module NavbarHelper
       ))
     end
   
-    # Helper for mobile nav link
     def mobile_nav_link(text, path, options = {})
       link_to text, path, options.merge(class: class_names(
         "block py-2 px-3 text-amber-900 hover:bg-amber-100 rounded-md",
@@ -68,7 +66,6 @@ module NavbarHelper
       ))
     end
   
-    # Helper for dropdown menu
     def nav_dropdown(title, items, options = {})
       content_tag :div, class: "relative", data: { controller: "dropdown" } do
         concat(
@@ -96,7 +93,6 @@ module NavbarHelper
       end
     end
   
-    # Helper for mobile dropdown menu
     def mobile_nav_dropdown(title, items, options = {})
       content_tag :div, class: "w-full", data: { controller: "dropdown" } do
         concat(
@@ -122,7 +118,6 @@ module NavbarHelper
       end
     end
   
-    # Render all navbar links (desktop)
     def render_nav_links
       content_tag :nav, class: "flex justify-center space-x-8 rtl" do
         navbar_links.each do |link|
@@ -135,10 +130,9 @@ module NavbarHelper
       end
     end
   
-    # Render all mobile navbar links
     def render_mobile_nav_links
       content_tag :div, class: "px-2 pt-2 pb-3 space-y-1 sm:px-3 rtl" do
-        navbar_links.reverse_each do |link| # Reverse to match mobile menu order
+        navbar_links.reverse_each do |link| 
           if link[:type] == :dropdown
             concat mobile_nav_dropdown(link[:title], link[:items])
           else
