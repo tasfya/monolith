@@ -1,7 +1,7 @@
 <div data-controller="navbar" class="bg-amber-50 shadow-sm">
   <div class="container mx-auto px-4 py-2 flex flex-wrap items-center gap-8">
     <%= nav_render_social_links %>
-    <div class="flex items-center space-x-4">
+    <div class="flex items-center space-x-4 flex-1">
       <div class="relative" data-controller="dropdown">
         <button data-dropdown-target="toggle" data-action="dropdown#toggle" class="btn-outline flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -23,13 +23,13 @@
           </div>
         </div>
       </div>
-      <div class="relative w-full">
+      <div class="relative max-w-sm w-full">
         <%= link_to podcast_search_results_path(@podcast), class: "outline-none",
               aria: {keyshortcuts: "Meta+k, Control+k"},
               data: {hotkey_target: "shortcut"} do %>
-          <div class="flex items-center gap-4 text-start btn-outline">
-            <span class="font-mono text-md leading-6">بحث</span>
-            <kbd class="inline-flex items-center gap-1 font-mono text-sm leading-6">
+          <div class="flex items-center justify-end gap-4 text-right border p-2 rounded-md bg-white w-full">
+            <span class="text-md">بحث الحلقات</span>
+            <kbd class="inline-flex items-center gap-1 text-md">
               <abbr title="Command" class="no-underline text-amber-600 scale-200">⌘</abbr> K
             </kbd>
           </div>
