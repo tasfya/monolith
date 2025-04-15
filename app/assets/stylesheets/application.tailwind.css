@@ -1,16 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
+@import 'actiontext.css';
 
 @layer components {
   .btn-primary {
     @apply bg-amber-500 text-white px-6 py-2 rounded hover:bg-amber-600 cursor-pointer;
   }
+
   .btn-secondary {
     @apply bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600 cursor-pointer;
   }
+
   .btn-danger {
     @apply bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 cursor-pointer;
   }
@@ -18,16 +19,13 @@
   .btn-ghost {
     @apply bg-transparent text-gray-500 px-6 py-2 rounded hover:bg-gray-100 cursor-pointer;
   }
+
   .btn-link {
     @apply bg-transparent text-gray-500 px-6 py-2 rounded cursor-pointer hover:underline;
   }
+
   .btn-outline {
-    @apply bg-amber-100 hover:bg-amber-200 px-4 py-1 rounded-md border border-amber-300 text-amber-800 
-  }
-}
-@layer base{
-  input {
-    @apply border border-gray-300 rounded p-2 w-full;
+    @apply bg-amber-100 hover:bg-amber-200 px-4 py-1 rounded-md border border-amber-300 text-amber-800
   }
 }
 
@@ -35,9 +33,70 @@
   .animate-slide-in {
     animation: slideIn 0.3s ease-out forwards;
   }
+
   .animate-slide-out {
     animation: slideOut 0.3s ease-in forwards;
   }
+
+  .dropdown-enter {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  .dropdown-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 150ms ease-out, transform 150ms ease-out;
+  }
+
+  .dropdown-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .dropdown-exit-active {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 150ms ease-in, transform 150ms ease-in;
+  }
+
+  /* RTL-specific tweaks */
+  .rtl .dropdown-menu {
+    transform-origin: top right;
+  }
+
+  .ltr .dropdown-menu {
+    transform-origin: top left;
+  }
+
+  [data-controller="dropdown"] {
+    position: relative;
+  }
+
+  [data-dropdown-target="content"] {
+    position: absolute;
+    left: 0;
+    z-index: 10;
+  }
+
+  [data-dropdown-target="content"].below {
+    top: 100%;
+    bottom: auto;
+  }
+
+  [data-dropdown-target="content"].above {
+    bottom: 100%;
+    top: auto;
+  }
+
+  .news-ticker {
+    animation: ticker 20s linear infinite;
+  }
+
+  .hover\:pause:hover .news-ticker {
+    animation-play-state: paused;
+  }
+
 }
 
 @keyframes slideIn {
@@ -45,6 +104,7 @@
     transform: translateX(100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -56,74 +116,19 @@
     transform: translateX(0);
     opacity: 1;
   }
+
   to {
     transform: translateX(100%);
     opacity: 0;
   }
 }
 
-
-@import 'actiontext.css';
-.dropdown-enter {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.dropdown-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 150ms ease-out, transform 150ms ease-out;
-}
-
-.dropdown-exit {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.dropdown-exit-active {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 150ms ease-in, transform 150ms ease-in;
-}
-
-/* RTL-specific tweaks */
-.rtl .dropdown-menu {
-  transform-origin: top right;
-}
-
-.ltr .dropdown-menu {
-  transform-origin: top left;
-}
-
-[data-controller="dropdown"] {
-  position: relative;
-}
-
-[data-dropdown-target="content"] {
-  position: absolute;
-  left: 0;
-  z-index: 10;
-}
-
-[data-dropdown-target="content"].below {
-  top: 100%;
-  bottom: auto;
-}
-
-[data-dropdown-target="content"].above {
-  bottom: 100%;
-  top: auto;
-}
-
-.news-ticker {
-  animation: ticker 20s linear infinite;
-}
-
 @keyframes ticker {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
+  0% {
+    transform: translateX(100%);
+  }
 
-.hover\:pause:hover .news-ticker {
-  animation-play-state: paused;
+  100% {
+    transform: translateX(-100%);
+  }
 }
