@@ -1,39 +1,57 @@
 <div class="p-6 bg-gray-50 rounded-lg shadow-md mt-4">
   <h1 class="text-3xl font-bold text-gray-800 mb-4 text-right">كتب الشيخ</h1>
-  <%= render layout: "components/carousel", locals: { auto_play: true, interval: 5000 } do %>
-    <% 10.times.each do %>
-      <% Book.all.in_groups_of(3, false).each_with_index do |book_group, index| %>
-        <%= render layout: "components/carousel_slide", locals: { active: index == 0 } do %>
-          <ul class="flex gap-4 justify-center overflow-x-auto w-full container mx-auto text-right">
-            <% book_group.each do |book| %>
-              <li class="border bg-white rounded-md p-4 max-w-sm">
-                <div class="flex flex-col gap-4">
-                  <div class="flex gap-2 w-full">
-                    <div class="flex flex-col flex-1">
-                      <span class="border bg-gray-100 flex items-center gap-1 rounded-md w-fit px-2">
-                        <svg class="size-4" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="AccessTimeIcon">
-                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8"></path>
-                            <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
-                        </svg>
-                        <%= book.created_at.strftime("%d %b %Y") %>
-                      </span>
-                      <span class="mt-auto pb-2 text-right text-xl"><%= book.title %></span>
-                      <button class="btn-primary text-sm mt-2">
-                        قراءة الكتاب
-                      </button>
-                    </div>
-                    <%= image_tag book.cover.representation(resize_to_fit:[160, 180]), alt: book.title, class: "w-[160px] h-[180px]" %>
+  
+  <div class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <% Book.all.each do |book| %>
+          <li class="glide__slide">
+            <div class="border bg-white rounded-md p-4 max-w-sm mx-auto">
+              <div class="flex flex-col gap-4">
+                <div class="flex gap-2 w-full">
+                  <div class="flex flex-col flex-1">
+                    <span class="border bg-gray-100 flex items-center gap-1 rounded-md w-fit px-2">
+                      <svg class="size-4" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="AccessTimeIcon">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8"></path>
+                        <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+                      </svg>
+                      <%= book.created_at.strftime("%d %b %Y") %>
+                    </span>
+                    <span class="mt-auto pb-2 text-right text-xl"><%= book.title %></span>
+                    <button class="btn-primary text-sm mt-2">
+                      قراءة الكتاب
+                    </button>
                   </div>
-                  <div>
-                    <h3 class="text-md py-3">نبذة عن الكتاب</h3>
-                    <p><%= book.desc %></p>
-                  </div>
+                  <%= image_tag book.cover.representation(resize_to_fit:[160, 180]), alt: book.title, class: "w-[160px] h-[180px]" %>
                 </div>
-              </li>
-            <% end %>
-          </ul>
+                <div>
+                  <h3 class="text-md py-3">نبذة عن الكتاب</h3>
+                  <p><%= book.desc %></p>
+                </div>
+              </div>
+            </div>
+          </li>
         <% end %>
+      </ul>
+    </div>
+    
+    <div class="glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="glide__bullets" data-glide-el="controls[nav]">
+      <% Book.all.each_with_index do |_, i| %>
+        <button class="glide__bullet" data-glide-dir="=<%= i %>"></button>
       <% end %>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>
