@@ -25,7 +25,12 @@ module NavbarHelper
         { type: :link, text: "محاضرات", path: "#" },
         { type: :link, text: "خطب", path: "#" },
         { type: :link, text: "فتاوى", path: "#" },
-        { type: :link, text: "الرئيسية", path: root_path }
+        { type: :dropdown, title: "الدروس العلمية", items: [
+          { text: "الدرس الأول", path: lessons_path },
+          { text: "الدرس الثاني", path: lessons_path },
+          { text: "الدرس الثالث", path: lessons_path },
+          { text: "الدرس الرابع", path: lessons_path }
+        ]},
       ]
     end
 
