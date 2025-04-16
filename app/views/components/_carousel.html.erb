@@ -1,0 +1,18 @@
+<div class="relative w-full overflow-hidden"
+  data-controller="carousel"
+  data-carousel-auto-play-value="<%= local_assigns[:auto_play] || true %>"
+  data-carousel-interval-value="<%= local_assigns[:interval] || 5000 %>">
+  <div class="relative h-96" data-carousel-target="slidesContainer">
+    <%= yield %>
+  </div>
+  <div class="flex justify-between items-center mt-4">
+    <button data-action="carousel#previous" class="btn-primary">
+      السابق
+    </button>
+    <div class="flex space-x-2" data-carousel-target="indicators">
+    </div>
+    <button data-action="carousel#next" class="btn-primary">
+      التالي
+    </button>
+  </div>
+</div>
