@@ -1,0 +1,36 @@
+<div class="bg-gray-100 rounded-md shadow w-full" data-controller="tab">
+  <div class="flex flex-row-reverse rounded-md border-t">
+    <button data-tab-target="tab" data-action="click->tab#switch" data-tab-index="0" class="flex-1 py-3 px-6 text-center text-md whitespace-nowrap font-medium focus:outline-none transition-colors duration-200" data-active-class="bg-white text-amber-600" data-inactive-class="bg-gray-100 text-gray-700">
+      الأكثر زيارة
+    </button>
+    <button data-tab-target="tab" data-action="click->tab#switch" data-tab-index="1" class="flex-1 py-3 px-6 text-center text-md whitespace-nowrap font-medium focus:outline-none transition-colors duration-200" data-active-class="bg-white text-amber-600" data-inactive-class="bg-gray-100 text-gray-700">
+      الأكثر تحميل
+    </button>
+  </div>
+  <div class="bg-white">
+    <div  class="">
+      <% fatwas = [
+                { id: 0, title: "حكمة خلق الله الكافر مع علمه سبحانه أنه من أهل النار" },
+                { id: 1, title: "ماذا على من قال \" علي الحرام ما أفعل كذا \"" },
+            ] %>
+      <% fatwas.each do |fatwa| %>
+        <div data-tab-target="panel" class="flex flex-col justify-between py-4 hidden" data-fatwa-id="<%= fatwa[:id] %>">
+          <% 5.times.each do %>
+            <div class="flex items-center justify-between py-3 px-2 hover:bg-gray-200 hover:rounded-md cursor-pointer">
+              <div class="flex space-x-4 rtl:space-x-reverse">
+                <svg class="size-5" focusable="false" aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6z"></path>
+                </svg>
+              </div>
+              <div class="text-right">
+                <div class="text-lg font-medium text-gray-800 text-right" data-fatwa-title>
+                  <%= fatwa[:title] %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
