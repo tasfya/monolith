@@ -18,10 +18,10 @@
     <%= render partial: "episode", locals: {episode: @episode } if @episode %>
   </div>
 </div>
-<div class="flex items-start gap-4">
+<div class="flex flex-wrap items-start gap-4">
   <div class="flex flex-col gap-4 w-full max-w-md items-end">
     <%= render partial: "components/header", locals: { podcast: @podcast } %>
-    <%= render partial: "courses" %>
+    <%= render partial: "books_states" %>
   </div>
   <div class="flex flex-col gap-4 w-full flex-1">
     <%= render partial: "fatwa" %>
