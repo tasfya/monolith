@@ -9,3 +9,4 @@ pin "trix"
 pin "@rails/actiontext", to: "actiontext.js"
 pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@2.0.1/dist/index.js"
 pin "debounced", to: "https://ga.jspm.io/npm:debounced@0.0.5/src/index.js"
+pin "@glidejs/glide", to: "@glidejs--glide.js" # @3.7.1

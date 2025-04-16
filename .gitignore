@@ -40,3 +40,4 @@ spring/*.pid
 *.swo
 app/assets/builds/*
 !app/assets/builds/.keep
+config/importmap.rb
