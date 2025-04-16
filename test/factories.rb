@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :book do
+    title { Faker::Book.title }
+    desc { Faker::Book.author }
+    cover { Rack::Test::UploadedFile.new(Rails.root.join("app/assets/images/logo.png"), "image/png") }
+  end
+
   factory :category do
     title { Faker::Lorem.sentence(word_count: 3, supplemental: true, locale: :ar) }
   end
