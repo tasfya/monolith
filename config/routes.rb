@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get "lessons/index", as: "lessons"
+  get "lessons", to: "lessons#index", as: "lessons"
+  get "contact", to: "contact#index", as: "contact"
   devise_for :users, 
             path: '', 
             controllers: {
               sessions: 'sessions',
             }
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Define your applicatiun routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :podcasts, only: :index do
     resources :episodes, only: [:index, :show]
     resources :search_results, only: :index
