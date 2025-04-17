@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   get "lessons", to: "lessons#index", as: "lessons"
-  get "contact", to: "contact#index", as: "contact"
-  devise_for :users, 
-            path: '', 
-            controllers: {
-              sessions: 'sessions',
-            }
+  get 'contact', to: 'contacts#new', as: 'contact'
+  post 'contact', to: 'contacts#create'
+  get 'thank-you', to: 'contacts#thank_you', as: 'thank_you'
+  devise_for :users, path: '', controllers: { sessions: 'sessions' }
   # Define your applicatiun routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :podcasts, only: :index do
     resources :episodes, only: [:index, :show]
