@@ -2,3 +2,15 @@ ar:
   date:
     formats:
       long: "%Y-%m-%d %H:%M:%S"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            name:
+              blank: "الرجاء إدخال الاسم"
+            email:
+              blank: "الرجاء إدخال البريد الإلكتروني"
+              invalid: "الرجاء إدخال بريد إلكتروني صالح"
+            message:
+              blank: "الرجاء إدخال رسالتك"

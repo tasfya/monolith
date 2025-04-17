@@ -7,18 +7,14 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     
     if @contact.save
-      # Optional: Add mailer functionality here to send the contact form
-      # ContactMailer.contact_email(@contact).deliver_now
-      
-      redirect_to thank_you_path, notice: 'Your message has been sent successfully!'
+      # TODO: send notification email
+      redirect_to thank_you_path, notice: 'تم إرسال رسالتك بنجاح!'
     else
       render :new, status: :unprocessable_entity
     end
   end
   
-  def thank_you
-    # This action will render the thank_you.html.erb view
-  end
+  def thank_you; end
   
   private
   
