@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :fatwa do
+    title { Faker::Lorem.sentence(word_count: 3) }
+    category
+    content { Faker::Lorem.paragraph }
+  end
+
   factory :contact do
     name { "MyString" }
     email { "MyString" }
