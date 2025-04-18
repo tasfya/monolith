@@ -1,4 +1,58 @@
-<div>
-  <h1 class="font-bold text-4xl">Books#index</h1>
-  <p>Find me in app/views/books/index.html.erb</p>
+<div class="flex flex-wrap items-start gap-4 mt-4">
+  <div class="flex flex-col gap-4 w-full max-w-md items-end">
+    <%= render partial: "components/header", locals: { podcast: @podcast } %>
+    <%= render partial: "home/books_states" %>
+  </div>
+  <div class="flex flex-col gap-4 w-full flex-1">
+    <div class=" bg-gray-100 rounded-md shadow w-full" data-controller="tab">
+      <!-- Tabs -->
+      <div class="flex flex-row-reverse rounded-md border-b border-amber-400 bg-gray-100 relative">
+        <% categorizations = Categorization.joins(:category).where(categorizations: { categorizable_type: 'Book' }).select("DISTINCT category_id") %>
+        <% categorizations.each_with_index do |categorization, index| %>
+          <button
+            data-tab-target="tab"
+            data-action="click->tab#switch"
+            data-tab-index="<%= index %>"
+            class="flex-1 py-2 md:py-3 lg:px-4 whitespace-nowrap px-6 text-center text-sm md:text-md lg:text-lg font-medium focus:outline-none z-10 transition-colors duration-200 <%= index == 0 ? 'bg-white text-amber-600' : 'bg-gray-100 text-gray-700' %>"
+            data-active-class="bg-white text-amber-600 border-x border-t border-amber-400 rounded-x-md rounded-t-md"
+            data-inactive-class="bg-gray-100 text-gray-700"
+            >
+            <%= categorization.category.name %>
+          </button>
+        <% end %>
+      </div>
+      <!-- Panels -->
+      <div class="bg-white">
+        <div>
+          <% categorizations.each_with_index do |categorization, index| %>
+            <div
+          data-tab-target="panel"
+          data-tab-index="<%= index %>"
+          class="flex flex-col justify-between px-3 py-4 <%= index == 0 ? '' : 'hidden' %>"
+        >
+              <% books = categorization.category.books.includes(:categorizations).order(created_at: :desc).limit(10) %>
+              <% books.each do |book| %>
+                <div class="flex flex-col justify-between py-4">
+                  <div>
+                    <h3 class="text-xl text-right p-3">بطاقة الكتاب</h3>
+                    <div class="flex flex-col md:flex-row gap-4">
+                      <div class="w-full">
+                        <h3 class="text-xl text-amber-400 py-3">نبذة عن الكتاب</h3>
+                        <div class="flex flex-col flex-1">
+                          <span class="mt-auto pb-2 text-right text-xl"><%= book.title %></span>
+                        </div>
+                        <p class=""><%= book.desc %></p>
+                      </div>
+                      <%= image_tag book.cover.representation(resize_to_fit:[160, 180]), alt: book.title, class: "w-[160px] h-[180px]" %>
+                    </div>
+                  </div>
+                    <%= link_to "تحميل الكتاب", rails_blob_path(book.file, disposition: "attachment"), class: "btn btn-primary w-fit ml-auto mt-4" %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
