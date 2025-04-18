@@ -1,4 +1,4 @@
-class CreateLessens < ActiveRecord::Migration[8.0]
+class CreateLessons < ActiveRecord::Migration[8.0]
   def change
     create_table :lessens do |t|
       t.string :title

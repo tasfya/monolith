@@ -1,4 +1,4 @@
-class Lessen < ApplicationRecord
+class Lesson < ApplicationRecord
   has_one_attached :audio
 
   has_many :categorizations, as: :categorizable, dependent: :destroy
