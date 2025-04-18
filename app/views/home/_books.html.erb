@@ -18,9 +18,7 @@
                       <%= book.created_at.strftime("%d %b %Y") %>
                     </span>
                     <span class="mt-auto pb-2 text-right text-xl"><%= book.title %></span>
-                    <button class="btn-primary text-sm mt-2">
-                      قراءة الكتاب
-                    </button>
+                    <%= link_to "قراءة الكتاب", book_path(book), class: "btn-primary text-sm mt-2" %>
                   </div>
                   <%= image_tag book.cover.representation(resize_to_fit:[160, 180]), alt: book.title, class: "w-[160px] h-[180px]" %>
                 </div>

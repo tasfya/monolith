@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :books
   get "lessons", to: "lessons#index", as: "lessons"
   get 'contact', to: 'contacts#new', as: 'contact'
   post 'contact', to: 'contacts#create'
